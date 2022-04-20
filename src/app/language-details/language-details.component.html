@@ -1,0 +1,8 @@
+<div *ngIf="language">
+    <h2>{{language.name | uppercase}} Details</h2>
+    <div>id: {{language.id}}</div>
+    <div>
+        <label for="hero-name">Language name: </label>
+        <input id="hero-name" [(ngModel)]="language.name" placeholder="name">
+    </div>
+</div>
