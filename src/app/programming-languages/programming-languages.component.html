@@ -1,10 +1,29 @@
 <h2>My Languages</h2>
 <ul class="languages">
   <li *ngFor="let language of programming_languages">
-    <span class="badge">{{language.id}}</span> {{language.name}}
-  </li>
-  <li *ngFor="let language of programming_languages">
-      <button [class.selected]="language == selectedLanguage" type="button" (click)="onSelect(language)">{{language.name}}</button>
+    <a routerLink="/detail/{{language.id}}">
+      <span class="badge">{{language.id}}</span> {{language.name}}
+    </a>
+    <button 
+      type="button" 
+      class="delete-btn" 
+      title="delete language" 
+      (click)="delete(language)"
+    >
+      X
+    </button>
   </li>
 </ul>
-<app-language-details [language]="selectedLanguage"></app-language-details>
+<div>
+  <label for="new-language">Language name: </label>
+  <input id="new-language"  #languageName/>
+
+  <button 
+    type="button" 
+    class="add-btn" 
+    (click)="add(languageName.value); 
+    languageName.value=''"
+  >
+    Add language
+  </button>
+</div>

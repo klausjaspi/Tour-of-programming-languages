@@ -9,6 +9,7 @@
         display: flex;
         margin-bottom: 0.7em;
         align-items: center;
+        justify-content: space-between;
         .badge{
             display: inline-block;
             font-size: small;
@@ -21,6 +22,19 @@
         }
         .name{
             align-self: center;
+        }
+        .delete-btn{
+            flex: 0;
+            background-color: white;
+            color:  black;
+            font-weight: 400;
+            font-size: 1rem;
+            margin: 0;
+            padding: 1px 10px 3px 10px;
+            &:hover{
+                background-color: black;
+                color: white;
+            }
         }
     }
 
