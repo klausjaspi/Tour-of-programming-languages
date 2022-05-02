@@ -3,6 +3,7 @@ import { Language } from '../language';
 import { LANGUAGES } from '../mock-languages';
 import { LanguageService } from '../language.service';
 import { MessageService } from '../message.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-programming-languages',
@@ -12,22 +13,28 @@ import { MessageService } from '../message.service';
 export class ProgrammingLanguagesComponent implements OnInit {
 
   programming_languages: Language[] = [];
-  selectedLanguage?: Language;
   
-  constructor(private languageService: LanguageService,
-    private messageService: MessageService) {}
+  constructor(private languageService: LanguageService) {}
     
   ngOnInit(): void {
     this.getLanguages();
   }
 
-  onSelect(language: Language): void{
-    this.selectedLanguage = language;
-    this.messageService.add(`LanguagesComponent: Selected language id=${language.id}`)
-  }
-
   getLanguages(): void {
     this.languageService.getLanguages()
     .subscribe(programming_languages => this.programming_languages = programming_languages);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.languageService.addLanguage({ name } as Language).subscribe(language => {
+      this.programming_languages.push(language)
+    })
+  }
+
+  delete(language: Language): void{
+    this.programming_languages = this.programming_languages.filter(h => h !== language);
+    this.languageService.deleteLanguage(language.id).subscribe();
   }
 }

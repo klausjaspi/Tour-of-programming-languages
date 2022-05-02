@@ -1,6 +1,7 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
-  <a *ngFor="let language of languages">
+  <a *ngFor="let language of languages"
+      routerLink="/detail/{{language.id}}">
     {{language.name}}
   </a>
 </div>
