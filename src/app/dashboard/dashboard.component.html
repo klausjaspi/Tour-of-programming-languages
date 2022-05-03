@@ -1,7 +1,9 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
+<h2>Top Languages</h2>
+<div class="languages-menu">
   <a *ngFor="let language of languages"
       routerLink="/detail/{{language.id}}">
     {{language.name}}
   </a>
 </div>
+
+<app-language-search></app-language-search>

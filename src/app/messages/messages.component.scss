@@ -1,20 +1,30 @@
-/* MessagesComponent's private CSS styles */
-h2 {
-    color: #A80000;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-  }
-  
-.clear {
-    color: #333;
-    background-color: #eee;
-    margin-bottom: 12px;
-    padding: 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
+.messages-container{
+    margin-top: 5rem;
+    margin-left: 2%;
+    width: 50%;
+    h2 {
+        color: #A80000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: lighter;
+    }
 
-    &:hover {
-        color: white;
-        background-color: #42545C;
+    .messages{
+        border: #333 solid 1px;
+        padding: 1rem;
+        max-width: 25rem;
+    }
+    
+    .clear {
+        color: #333;
+        background-color: #eee;
+        margin-top: 20px;
+        padding: 1rem;
+        border-radius: 4px;
+        font-size: 1rem;
+
+        &:hover {
+            color: white;
+            background-color: #42545C;
+        }
     }
 }
