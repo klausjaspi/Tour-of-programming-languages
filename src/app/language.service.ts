@@ -79,6 +79,19 @@ export class LanguageService {
       );
   }
 
+  searchLanguages(term: string): Observable<Language[]> {
+    if (!term.trim()){
+      // return empty array if there is no search term
+      return of([]);
+    }
+    return this.http.get<Language[]>(`${this.languagesUrl}/?name=${term}`).pipe(
+      tap(x => x.length ? 
+        this.log(`found languages matching "${term}"`) :
+        this.log(`no languages matching "${term}"`)),
+    catchError(this.handleError<Language[]>('searchLanguages', []))
+    );
+  }
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService,

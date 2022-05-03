@@ -21,11 +21,6 @@ export class InMemoryDataService implements InMemoryDbService {
     return {languages};
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
-  // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
   genId(languages: Language[]): number {
     return languages.length > 0 ? Math.max(...languages.map(language => language.id)) + 1 : 11;
   }
